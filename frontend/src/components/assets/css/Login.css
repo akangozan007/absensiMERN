@@ -1,0 +1,56 @@
+/* font */
+*{
+    font-family: "Afacad Flux", serif;
+    font-optical-sizing: auto;
+    font-weight: auto;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0;
+  }
+  
+
+body{
+    background-color: #3b2f6d;
+    background-image: url('../images/laptop-purple.jpeg'); /* Tambahkan gambar background */
+    background-blend-mode:luminosity; /* Mode blending */
+    background-size: cover; /* Atur ukuran gambar */
+    background-position: center; /* Posisikan gambar */
+    /* opacity: 0.8;  */
+}
+div a{
+    color: #f2fbf8;
+}
+div span{
+    color: #f2fbf8;
+}
+div p{
+    color: #f2fbf8;
+}
+.textLogin{
+    color: #f2fbf8;
+}
+
+.form-login{
+    background-color: #f2fbf8;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 1rem;
+  }
+  
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
