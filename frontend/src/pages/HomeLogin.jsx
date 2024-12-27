@@ -1,6 +1,8 @@
 import React from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+// import InputAdornment from '@mui/material/InputAdornment';
+// import AccountCircle from '@mui/icons-material/AccountCircle';
 
 function Home() {
   return (
@@ -18,13 +20,79 @@ function Home() {
         </div>
 
         {/* Kolom Form */}
-        <div className="col-lg-4 col-12 rounded rounded-5 position-relative">
-        <Box component="form" sx={{ p: 2, border: '1px dashed purple' }} >
-          {/* This Box renders as an HTML section element. */}
-          <TextField id="outlined-basic" label="Username" variant="outlined" />
-          <TextField id="outlined-basic" label="Password" variant="outlined" />
+        <div className="col-lg-4 col-12 rounded px-auto rounded-5 position-relative">
+        <Box 
+          component="form" 
+          sx={{ 
+            p: 2, 
+            border: '1px dash mediumseagreen', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+          }} 
+        >
+         <TextField 
+            id="Username"
+            label="Username" 
+            variant="outlined" 
+            sx={{
+              // margin
+              m:1,
+              // Root class for the input field
+              "& .MuiOutlinedInput-root": {
+                color: "mediumseagreen",
+                // Class for the border around the input field
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "mediumseagreen",
+                  borderWidth: "1px",
+                },
+                "&.Mui-focused": {
+                  color: "mediumseagreen",
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "mediumseagreen",
+                    borderWidth: "3px",
+                  },
+                },
+              },
+              // Class for the label of the input field
+              "& .MuiInputLabel-outlined": {
+                color: "mediumseagreen",
+                fontWeight: "bold",
+              },
+              
+            }}
+          />
 
+          <TextField 
+            id="password" 
+            label="Password" 
+            variant="outlined" 
+            sx={{
+              m:1,
+              // Root class for the input field
+              "& .MuiOutlinedInput-root": {
+                color: "mediumseagreen",
+                // Class for the border around the input field
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "mediumseagreen",
+                  borderWidth: "2px",
+                },
+              },
+              // Class for the label of the input field
+              "& .MuiInputLabel-outlined": {
+                color: "mediumseagreen",
+                fontWeight: "bold",
+              },
+              "&.Mui-focused": {
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "red",
+                borderWidth: "3px",
+                },
+              },
+            }}
+          />
         </Box>
+
         </div>
       </div>
     </div>
