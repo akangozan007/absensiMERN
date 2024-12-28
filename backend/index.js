@@ -4,7 +4,6 @@ import cors from "cors";
 import PenggunaRoutes from './controllers/PenggunaControllers.js';
 import AbsensiRoutes from './controllers/AbsensiController.js';
 
-
 const app = express();
 
 mongoose.connect('mongodeb://localhost:27017/absensi_db', {
@@ -21,8 +20,6 @@ app.use(cors());
 app.use(express.json());
 app.use(PenggunaRoutes);
 app.use(AbsensiRoutes);
-
-
 
 app.listen(5000, () => console.log('server up and running'));
 
