@@ -1,6 +1,6 @@
 import Absensi from '../models/AbsensiModels.js';
 
-
+// get data absensi semua orang
 export const RaihDataAbsen = async (req, res) => {
     try {
         const absensi = await Absensi.find();
@@ -10,11 +10,13 @@ export const RaihDataAbsen = async (req, res) => {
     }
 }
 
+// get data absensi untuk user tertentu
 export const RaihDataAbsenById = async (req, res) => {
+    
     try {
-        const absensi = await Absensi.find();
+        const absensi = await Absensi.find(req.params.id);
         res.json(absensi);
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(404).json({message: error.message});
     }
 }

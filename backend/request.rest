@@ -1,0 +1,36 @@
+GET http://localhost:5000/pengguna
+
+###
+
+# get by id
+GET http://localhost:5000/pengguna/6770dfb8152099acf4220fb6
+
+###
+
+# fitur register
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+    "nama":"razan",
+    "level":"siswa",
+    "whatsapp":"083844335251",
+    "gender":"laki laki",
+    "kelas":"12 TKJ 1",
+    "jurusan":"TKJ",
+    "password":"12345678",
+    "username":"razan",
+    "email":"akangozan007@gmail.com",
+    "status":"activated"
+}
+
+###
+
+# fitur login
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username":"razan",
+    "password":"12345678"
+}

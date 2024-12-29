@@ -1,8 +1,9 @@
 import express from 'express';
-import { RaihDataAbsensi } from '../controllers/AbsensiController';
+import { RaihDataAbsen, RaihDataAbsenById } from '../controllers/AbsensiController.js';
 
 const AbsensiRouter = express.Router();
 
-AbsensiRouter.get('/pengguna/absen');
+AbsensiRouter.get('/pengguna/absen',RaihDataAbsen);
+AbsensiRouter.get('/pengguna/absen/:id', RaihDataAbsenById);
 
 export default AbsensiRouter;

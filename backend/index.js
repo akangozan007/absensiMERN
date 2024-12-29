@@ -1,14 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import PenggunaRoutes from './controllers/PenggunaControllers.js';
-import AbsensiRoutes from './controllers/AbsensiController.js';
+import PenggunaRoutes from './routes/PenggunaRoutes.js';
+import AbsensiRoutes from './routes/AbsensiRoutes.js';
 
 const app = express();
 
-mongoose.connect('mongodeb://localhost:27017/absensi_db', {
-    useNewUrlParser:true,
-    useUnifiedTopolofy:true
+mongoose.connect('mongodb://localhost:27017/absensi_db', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
 });
 
 const db = mongoose.connection;
