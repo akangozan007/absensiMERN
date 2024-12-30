@@ -1,5 +1,10 @@
 import express from 'express';
-import { RaihDataPengguna, RaihDataPenggunaById, RegistAddPengguna, LoginPengguna } from '../controllers/PenggunaControllers.js';
+import { 
+    RaihDataPengguna,
+    RaihDataPenggunaById, 
+    RegistAddPengguna, 
+    LoginPengguna,
+    GetSessionPengguna  } from '../controllers/PenggunaControllers.js';
 import cookieParser from 'cookie-parser';
 import Session from 'express-session';
 
@@ -27,6 +32,8 @@ PenggunaRouter.use(
 
 // Route login
 PenggunaRouter.post('/login', LoginPengguna);
+// Route get session endpoint
+PenggunaRouter.get('/dashboard', GetSessionPengguna);
 
 
 export default PenggunaRouter;

@@ -15,7 +15,10 @@ const db = mongoose.connection;
 db.on('error', (error) => console.log(error));
 db.once('open', () => console.log('database connected'));
 
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+}));
 
 app.use(express.json());
 app.use(PenggunaRoutes);

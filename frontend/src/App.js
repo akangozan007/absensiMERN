@@ -32,8 +32,7 @@ return (
         }/>
         {/* Dashboard page */}
         <Route path="/dashboard"
-         element=
-         {
+         element={
         <>
         <header className='fixed-top'>
         <Navbar /> 

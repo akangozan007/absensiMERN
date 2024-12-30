@@ -45,18 +45,31 @@ export const LoginPengguna = async (req, res) => {
             return res.status(401).json({ message: "Password salah" });
         }
 
-        // Simpan data session sebelum mengirim respons
         req.session.pengguna = {
             id: pengguna._id,
             username: pengguna.username,
             role: pengguna.level,
-        };
-        console.log(req.session.pengguna);
-
-        // Kirim respons
-        return res.status(201).json({ message: "Login Berhasil ...", pengguna });
+          };
+          req.session.save((err) => {
+            if (err) {
+              console.error("Gagal menyimpan session:", err);
+              return res.status(500).json({ message: "Gagal menyimpan session" });
+            }
+            console.log("Session berhasil disimpan:", req.session.pengguna);
+            res.status(200).json({ message: "Login berhasil", pengguna: req.session.pengguna });
+          });
+        
     } catch (error) {
         // Tangani kesalahan
         return res.status(400).json({ message: error.message });
     }
 };
+
+export const GetSessionPengguna = async (req, res) => {
+    if (req.session.pengguna) {
+      console.log("Session saat login:", req.session);
+      return res.status(200).json(req.session.pengguna); // Kirim data session 
+    } else {
+      return res.status(401).json({ message: "Tidak ada session aktif" });
+    }
+  };

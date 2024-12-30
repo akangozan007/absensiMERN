@@ -1,11 +1,25 @@
-import React from 'react'
+import React from 'react';
+// import axios from 'axios';
+import axios from "axios";
 
-function Dashboard() {
+axios.defaults.withCredentials = true; // Pastikan cookie dikirim
+
+const Dashboard = () => {
+
+  axios.get("http://localhost:5000/dashboard")
+  .then((response) => {
+    console.log("Data session:", response.data);
+  })
+  .catch((error) => {
+    console.error("Gagal mendapatkan session:", error.response.data);
+  });
+
   return (
     <div>
-      ini laman dashboard
+      <h1>Selamat Datang</h1>
+      <p>Anda login sebagai</p>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

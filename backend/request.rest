@@ -34,3 +34,13 @@ Content-Type: application/json
     "username":"razan",
     "password":"12345678"
 }
+
+###
+
+# session
+GET http://localhost:5000/session
+Content-Type: application/json
+
+{
+    "username":"razan"
+}
