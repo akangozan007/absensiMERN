@@ -1,5 +1,5 @@
 import Pengguna from '../models/PenggunaModels.js';
-
+import session from 'express-session';
 // get data user untuk proses tertentu 
 export const RaihDataPengguna = async (req, res) => {
     try {
@@ -34,9 +34,9 @@ export const RegistAddPengguna = async (req, res) => {
 // fitur login pengguna
 
 export const LoginPengguna = async (req, res) => {
-    const {username, password } = req.body ;
+    const { username, password } = req.body;
     try {
-        const pengguna = await Pengguna.findOne({username});
+        const pengguna = await Pengguna.findOne({ username });
         if (!pengguna) {
             return res.status(404).json({ message: "Pengguna tidak ditemukan" });
         }
@@ -44,8 +44,19 @@ export const LoginPengguna = async (req, res) => {
         if (!jikaPasswordValid) {
             return res.status(401).json({ message: "Password salah" });
         }
-        res.status(201).json({message: "Login Berhasil ...",pengguna});
+
+        // Simpan data session sebelum mengirim respons
+        req.session.pengguna = {
+            id: pengguna._id,
+            username: pengguna.username,
+            role: pengguna.level,
+        };
+        console.log(req.session.pengguna);
+
+        // Kirim respons
+        return res.status(201).json({ message: "Login Berhasil ...", pengguna });
     } catch (error) {
-        res.status(400).json({message: error.message});
+        // Tangani kesalahan
+        return res.status(400).json({ message: error.message });
     }
-}
+};

@@ -20,6 +20,7 @@ app.use(cors());
 app.use(express.json());
 app.use(PenggunaRoutes);
 app.use(AbsensiRoutes);
+app.use('/pengguna', PenggunaRoutes);
 
 app.listen(5000, () => console.log('server up and running'));
 
