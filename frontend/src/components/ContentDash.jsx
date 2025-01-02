@@ -25,6 +25,8 @@ import {
 } from '@mui/material';
 
 import {
+  DateRange as DateRangeIcon,
+  Home as  HomeIcon,
   Menu as MenuIcon,
   AccountCircle,
   Mail as MailIcon,
@@ -32,14 +34,25 @@ import {
   Notifications as NotificationsIcon,
   MoreVert as MoreIcon,
 } from '@mui/icons-material';
-import { lightGreen } from '@mui/material/colors';
+import { deepPurple } from '@mui/material/colors';
 
 const drawerWidth = 240;
 
 const theme = createTheme({
   palette: {
-    primary: { main: '#060117' },
-    secondary: { main: lightGreen['A400'] },
+    primary: { 
+      main: deepPurple['900'],
+      textIcon: deepPurple['50'],
+    },
+    secondary:
+     {
+       main: deepPurple['400'],
+
+     },
+    black: { 
+      main: deepPurple['A700'],
+      textIcon: deepPurple['A100'],
+    },
   },
 });
 
@@ -50,17 +63,20 @@ export function NavbarDash(props) {
 
   const navItems = [
     {
-      text: <><Typography color='secondary'>Home</Typography></>,
-      icon: <Groups3Icon secondary/>,
+      text: <><Typography sx={{ color: theme.palette.black.textIcon }}>Home</Typography></>,
+      icon: <HomeIcon sx={{ color: theme.palette.black.textIcon }} />,
       path:'/dashboard',
     },
     {
-      text: <><Typography color='secondary'>Absen</Typography></>,
-      icon: <Groups3Icon />,
-      path:'/dashboard',
+      text: <><Typography sx={{ color: theme.palette.black.textIcon }}>Absen</Typography></>,
+      icon: <Groups3Icon sx={{ color: theme.palette.black.textIcon }} />,
+      path:'/dashboard/absen',
     },  
-    'Absen', 
-    'Kalender'
+    {
+      text: <><Typography sx={{ color: theme.palette.black.textIcon }}>Calender</Typography></>,
+      icon: <DateRangeIcon sx={{ color: theme.palette.black.textIcon }} />,
+      path:'/dashboard/calendar',
+    },  
   ];
 
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -81,19 +97,19 @@ export function NavbarDash(props) {
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
-      sx={{ textAlign: 'center', backgroundColor: theme.palette.primary.main }}
+      sx={{ textAlign: 'left', backgroundColor: theme.palette.black.main }}
     >
-      <Typography variant="h6" sx={{ my: 2 }} color="secondary">
-        MUI
+      <Typography variant="h4" sx={{ my: 2, color:theme.palette.black.textIcon, }}>
+       Nzan's Absen
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton sx={{ textAlign: 'left' }}>
               {/* <ListItemText primary={item} /> */}
+              <ListItemIcon  sx={{ color: theme.palette.black.textIcon }}>{item.icon}</ListItemIcon>
               <ListItemText disableTypography primary={item.text}/>
-              <ListItemIcon>{item.icon}</ListItemIcon>
               </ListItemButton>
           </ListItem>
         ))}
@@ -166,22 +182,22 @@ export function NavbarDash(props) {
             </IconButton>
             <Typography
               variant="h6"
-              sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
+              sx={{ flexGrow: 1, color: theme.palette.black.textIcon, display: { xs: 'block', sm: 'block' } }}
             >
               Nzans Absensi
             </Typography>
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <IconButton size="large" color="inherit">
-                <Badge badgeContent={4} color="error">
-                  <MailIcon />
+              <IconButton size="large" sx={{ color: theme.palette.primary.textIcon }} >
+                <Badge badgeContent={4} sx={{ color: theme.palette.primary.textIcon }}>
+                  <MailIcon sx={{ color: theme.palette.primary.textIcon }}/>
                 </Badge>
               </IconButton>
-              <IconButton size="large" color="inherit">
-                <Badge badgeContent={17} color="error">
+              <IconButton size="large" sx={{ color: theme.palette.primary.textIcon }} >
+                <Badge badgeContent={4} sx={{ color: theme.palette.primary.textIcon }}>
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
-              <IconButton
+              <IconButton sx={{ color: theme.palette.primary.textIcon }}
                 size="large"
                 edge="end"
                 color="inherit"
@@ -212,7 +228,7 @@ export function NavbarDash(props) {
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
                 width: drawerWidth,
-                backgroundColor: theme.palette.primary.main
+                backgroundColor: theme.palette.black.main
               },
             }}
             color='secondary'
