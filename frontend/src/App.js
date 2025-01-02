@@ -34,15 +34,15 @@ return (
         <Route path="/dashboard"
          element={
         <>
-        <header className='fixed-top'>
+        {/* <header className='fixed-top'>
         <Navbar /> 
-        </header>
+        </header> */}
         <main className=''>
           <DashboardContent/>
         </main>
-        <footer className='fixed-bottom'>
+        {/* <footer className='fixed-bottom'>
           <Footer/>
-        </footer>
+        </footer> */}
         </>
         }/>
      </Routes>
