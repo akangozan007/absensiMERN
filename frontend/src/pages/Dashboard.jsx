@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import {NavbarDash}  from "../components/ContentDash";
+import { NavbarDash }  from "../components/ContentDash";
 
 axios.defaults.withCredentials = true; // Pastikan cookie dikirim
 
 const Dashboard = () => {
-  const [userLogin, setUserLogin] = useState(null); // State untuk menyimpan data pengguna
+  const [userLogin, setUserLogin] = useState(''); // State untuk menyimpan data pengguna
   const [errorMessage, setErrorMessage] = useState(""); // State untuk menyimpan error
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const Dashboard = () => {
   // Tampilkan data setelah berhasil diambil
   return (
    <>
-    <NavbarDash/>
+    <NavbarDash session={userLogin} />
    </>
   );
 };

@@ -59,9 +59,9 @@ const theme = createTheme({
 export function NavbarDash(props) {
   const thema = useTheme();
   const isMobile = useMediaQuery(thema.breakpoints.down('sm'));
-  const { window } = props;
+  const { window, session } = props;
 
-  const navItems = [
+  const navItemsiswa = [
     {
       text: <><Typography sx={{ color: theme.palette.black.textIcon }}>Home</Typography></>,
       icon: <HomeIcon sx={{ color: theme.palette.black.textIcon }} />,
@@ -79,6 +79,29 @@ export function NavbarDash(props) {
     },  
   ];
 
+  const navItemAdmin = [
+    {
+      text: <><Typography sx={{ color: theme.palette.black.textIcon }}>Home</Typography></>,
+      icon: <HomeIcon sx={{ color: theme.palette.black.textIcon }} />,
+      path:'/dashboard',
+    },
+    {
+      text: <><Typography sx={{ color: theme.palette.black.textIcon }}>Laporan Absen</Typography></>,
+      icon: <Groups3Icon sx={{ color: theme.palette.black.textIcon }} />,
+      path:'/dashboard/absen',
+    },  
+    {
+      text: <><Typography sx={{ color: theme.palette.black.textIcon }}>Calender</Typography></>,
+      icon: <DateRangeIcon sx={{ color: theme.palette.black.textIcon }} />,
+      path:'/dashboard/calendar',
+    },
+    {
+      text: <><Typography sx={{ color: theme.palette.black.textIcon }}>Tambah User</Typography></>,
+      icon: <DateRangeIcon sx={{ color: theme.palette.black.textIcon }} />,
+      path:'/dashboard/calendar',
+    },    
+  ];
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -93,7 +116,9 @@ export function NavbarDash(props) {
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const container = window !== undefined ? () => window().document.body : undefined;
-
+  //  Tentukan item navigasi berdasarkan peran
+  const navItems = session?.role === 'admin' ? navItemAdmin : navItemsiswa;
+   
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
@@ -101,10 +126,12 @@ export function NavbarDash(props) {
     >
       <Typography variant="h4" sx={{ my: 2, color:theme.palette.black.textIcon, }}>
        Nzan's Absen
+      {'\t'+session.username}
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
+        {
+        navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'left' }}>
               {/* <ListItemText primary={item} /> */}
@@ -112,7 +139,8 @@ export function NavbarDash(props) {
               <ListItemText disableTypography primary={item.text}/>
               </ListItemButton>
           </ListItem>
-        ))}
+        ))
+        }
       </List>
     </Box>
   );
@@ -165,7 +193,10 @@ export function NavbarDash(props) {
     </Menu>
   );
 
+
   return (
+
+    <>
     <ThemeProvider theme={theme}>
       <Box sx={{ display: 'flex' }}>
         <AppBar position="static">
@@ -240,6 +271,8 @@ export function NavbarDash(props) {
         {renderMenu}
       </Box>
     </ThemeProvider>
+    </>
+
   );
 }
 
