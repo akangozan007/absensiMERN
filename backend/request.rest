@@ -12,15 +12,15 @@ POST http://localhost:5000/register
 Content-Type: application/json
 
 {
-    "nama":"razan",
-    "level":"siswa",
+    "nama":"admin",
+    "level":"admin",
     "whatsapp":"083844335251",
     "gender":"laki laki",
     "kelas":"12 TKJ 1",
-    "jurusan":"TKJ",
+    "jurusan":"TKJ 3",
     "password":"12345678",
-    "username":"razan",
-    "email":"akangozan007@gmail.com",
+    "username":"admin",
+    "email":"admin@gmail.com",
     "status":"activated"
 }
 
@@ -38,9 +38,12 @@ Content-Type: application/json
 ###
 
 # session
-GET http://localhost:5000/session
+GET http://localhost:5000/dashboard
 Content-Type: application/json
 
 {
     "username":"razan"
 }
+
+
+
