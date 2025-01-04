@@ -25,5 +25,5 @@ app.use(PenggunaRoutes);
 app.use(AbsensiRoutes);
 app.use('/pengguna', PenggunaRoutes);
 
-app.listen(5000,'0.0.0.0',() => console.log('server up and running'));
+app.listen(5000,'localhost',() => console.log('server up and running'));
 

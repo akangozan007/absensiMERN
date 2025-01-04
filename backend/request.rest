@@ -12,15 +12,15 @@ POST http://localhost:5000/register
 Content-Type: application/json
 
 {
-    "nama":"admin",
-    "level":"admin",
+    "nama":"razan",
+    "level":"siswa",
     "whatsapp":"083844335251",
     "gender":"laki laki",
     "kelas":"12 TKJ 1",
     "jurusan":"TKJ 3",
     "password":"12345678",
-    "username":"admin",
-    "email":"admin@gmail.com",
+    "username":"razan",
+    "email":"razan@gmail.com",
     "status":"activated"
 }
 

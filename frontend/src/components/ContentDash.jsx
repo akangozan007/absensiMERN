@@ -153,6 +153,14 @@ export function NavbarDash(props) {
       onClose={handleMenuClose}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      MenuProps={{
+        PaperProps: {
+          sx: {
+            backgroundColor: theme.palette.black.main,
+            color: theme.palette.black.textIcon,
+          },
+        },
+      }}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
@@ -160,6 +168,7 @@ export function NavbarDash(props) {
   );
 
   const renderMobileMenu = (
+    <ThemeProvider theme={theme}>
     <Menu
       anchorEl={mobileMoreAnchorEl}
       id="primary-search-account-menu-mobile"
@@ -167,30 +176,32 @@ export function NavbarDash(props) {
       onClose={handleMobileMenuClose}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+   
     >
-      <MenuItem>
-        <IconButton size="large" color="inherit">
+      <MenuItem sx={{ backgroundColor:theme.palette.black.main}}>
+        <IconButton size="large" sx={{ color:theme.palette.black.main}}>
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-      <MenuItem>
-        <IconButton size="large" color="inherit">
+      <MenuItem sx={{ backgroundColor:theme.palette.black.main}}>
+        <IconButton size="large" sx={{ color:theme.palette.black.main}}>
           <Badge badgeContent={17} color="error">
             <NotificationsIcon />
           </Badge>
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton size="large" color="inherit">
+      <MenuItem onClick={handleProfileMenuOpen} sx={{ backgroundColor:theme.palette.black.main}}>
+        <IconButton size="large" sx={{ color:theme.palette.black.main}}>
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
     </Menu>
+    </ThemeProvider>
   );
 
 
@@ -217,7 +228,7 @@ export function NavbarDash(props) {
             >
               Nzans Absensi
             </Typography>
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, color: theme.palette.primary.textIcon  }}>
               <IconButton size="large" sx={{ color: theme.palette.primary.textIcon }} >
                 <Badge badgeContent={4} sx={{ color: theme.palette.primary.textIcon }}>
                   <MailIcon sx={{ color: theme.palette.primary.textIcon }}/>
@@ -228,7 +239,7 @@ export function NavbarDash(props) {
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
-              <IconButton sx={{ color: theme.palette.primary.textIcon }}
+              <IconButton
                 size="large"
                 edge="end"
                 color="inherit"
@@ -237,7 +248,7 @@ export function NavbarDash(props) {
                 <AccountCircle />
               </IconButton>
             </Box>
-            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <Box sx={{ display: { xs: 'flex', md: 'none' },  }}>
               <IconButton
                 size="large"
                 color="inherit"
@@ -248,7 +259,7 @@ export function NavbarDash(props) {
             </Box>
           </Toolbar>
         </AppBar>
-        <nav>
+        <nav >
           <Drawer
             container={container}
             variant={isMobile ? 'temporary' : 'permanent'}
@@ -261,6 +272,7 @@ export function NavbarDash(props) {
                 width: drawerWidth,
                 backgroundColor: theme.palette.black.main
               },
+                backgroundColor: theme.palette.black.main,
             }}
             color='secondary'
           >

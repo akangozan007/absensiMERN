@@ -26,7 +26,7 @@ function LoginForm() {
 
     try {
       // proses mengirimkan data login form ke backend
-      const response = await axios.post('http://0.0.0.0:5000/login', { username, password });
+      const response = await axios.post('http://localhost:5000/login', { username, password });
       console.log(response.data);
       alert("Login Berhasil");
 

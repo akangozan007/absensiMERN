@@ -5,20 +5,20 @@ import { NavbarDash }  from "../components/ContentDash";
 axios.defaults.withCredentials = true; // Pastikan cookie dikirim
 
 const Dashboard = () => {
-  const [userLogin, setUserLogin] = useState(''); // State untuk menyimpan data pengguna
-  const [errorMessage, setErrorMessage] = useState(""); // State untuk menyimpan error
+  const [userLogin, setUserLogin] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    // Fetch data ketika komponen dimuat
+
     axios
       .get("http://localhost:5000/dashboard")
       .then((response) => {
         console.log("Data session:", response.data);
-        setUserLogin(response.data); // Simpan data ke state
+        setUserLogin(response.data);
       })
       .catch((error) => {
         console.error("Gagal mendapatkan session:", error.response?.data || error.message);
-        setErrorMessage("Gagal mendapatkan session, silakan login kembali."); // Set pesan error
+        setErrorMessage("Gagal mendapatkan session, silakan login kembali.");
       });
   }, []);
 
