@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { NavbarDash } from "../components/ContentDash";
-
+import AbsenDash from "../components/AbsenDash";
 axios.defaults.withCredentials = true; // Ensure cookies are sent
 
 const Dashboard = () => {
@@ -35,7 +35,12 @@ const Dashboard = () => {
   // Display data after it has been fetched
   return (
     <>
-      <NavbarDash session={userLogin} />
+
+    <NavbarDash session={userLogin} />
+      <div className='container-fluid position-relative float-end'>
+        <AbsenDash session={userLogin}/>
+      </div>
+      
     </>
   );
 };

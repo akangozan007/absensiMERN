@@ -49,15 +49,17 @@ return (
          <Route path="/dashboard/logout"
          element={
         <>
-        {/* <header className='fixed-top'>
-        <Navbar /> 
-        </header> */}
         <main className=''>
           <Logout/>
-        </main>
-        {/* <footer className='fixed-bottom'>
-          <Footer/>
-        </footer> */}
+        </main> 
+        </>
+        }/>
+          <Route path="/dashboard/absen"
+         element={
+        <>
+        <main className=''>
+          <Logout/>
+        </main> 
         </>
         }/>
      </Routes>
