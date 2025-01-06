@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LoginContent from './pages/HomeLogin';
 import DashboardContent from './pages/Dashboard';
+import Logout from './pages/Logout';
 import './components/assets/css/Login.css';
 import { Routes, Route} from 'react-router-dom';
 
@@ -39,6 +40,20 @@ return (
         </header> */}
         <main className=''>
           <DashboardContent/>
+        </main>
+        {/* <footer className='fixed-bottom'>
+          <Footer/>
+        </footer> */}
+        </>
+        }/>
+         <Route path="/dashboard/logout"
+         element={
+        <>
+        {/* <header className='fixed-top'>
+        <Navbar /> 
+        </header> */}
+        <main className=''>
+          <Logout/>
         </main>
         {/* <footer className='fixed-bottom'>
           <Footer/>

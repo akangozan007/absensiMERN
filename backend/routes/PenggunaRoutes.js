@@ -4,36 +4,45 @@ import {
     RaihDataPenggunaById, 
     RegistAddPengguna, 
     LoginPengguna,
-    GetSessionPengguna  } from '../controllers/PenggunaControllers.js';
+    GetSessionPengguna,
+    LogoutPengguna,
+} from '../controllers/PenggunaControllers.js';
 import cookieParser from 'cookie-parser';
 import Session from 'express-session';
 
 const PenggunaRouter = express.Router();
-// list data user
-PenggunaRouter.get('/pengguna', RaihDataPengguna);
-PenggunaRouter.get('/pengguna/:id',RaihDataPenggunaById);
-// register
-PenggunaRouter.post('/register', RegistAddPengguna);
+
 // Tambahkan middleware cookie-parser
 PenggunaRouter.use(cookieParser());
 
 // Setup session middleware
 PenggunaRouter.use(
     Session({
-        secret: 'secret', // Ganti dengan secret yang aman
+        secret: 'secret', 
         resave: false,
         saveUninitialized: false,
         cookie: {
-            secure: false, // Gunakan true jika menggunakan HTTPS
+            secure: false, // Set true jika menggunakan HTTPS
             maxAge: 1000 * 60 * 60 * 24, // 1 hari
         },
+        name: 'connect.sid' // Nama cookie sesi
     })
 );
 
-// Route login
+// Rute list data pengguna
+PenggunaRouter.get('/pengguna', RaihDataPengguna);
+PenggunaRouter.get('/pengguna/:id', RaihDataPenggunaById);
+
+// Rute register
+PenggunaRouter.post('/register', RegistAddPengguna);
+
+// Rute login
 PenggunaRouter.post('/login', LoginPengguna);
-// Route get session endpoint
+
+// Rute untuk mendapatkan sesi pengguna
 PenggunaRouter.get('/dashboard', GetSessionPengguna);
 
+// Rute untuk logout
+PenggunaRouter.get('/dashboard/logout', LogoutPengguna);
 
 export default PenggunaRouter;
