@@ -9,18 +9,38 @@ function AbsenDash(props) {
 
   return (
    <>
+
    <br /><br /><br /><br /><br /><br />
-   <div className='container-md container-fluid position-absolute top-100 start-50 translate-middle'>
-        <div className='container-fluid bg-dark ms-5' >
-            <p className='h1 text-center text-success fw-bolder'>Selamat Datang {session.username}</p>
+   <div className='container-fluid d-flex flex-column align-items-center justify-content-center flex-grow-1'>
+    {/* status user */}
+    <div className="card-group w-lg-75 w-100">
+        <div className="card m-3">
+            <img src="..." className="card-img-top" alt="..." />
+            <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
+            </div>
         </div>
-        <div className='container-fluid bg-dark' >
-            <p className='h1 text-center text-success fw-bolder'>Progress absen</p>
+        <div className="card m-3">
+            <img src="..." className="card-img-top" alt="..." />
+            <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
+            </div>
         </div>
-        <div className='container-fluid bg-dark' >
-            <p className='h1 text-center text-success fw-bolder'>absen Hari Ini </p>
+        <div className="card m-3">
+            <img src="..." className="card-img-top" alt="..." />
+            <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
+            </div>
         </div>
-   </div>
+    </div>
+</div>
+
    </>
   )
 }
